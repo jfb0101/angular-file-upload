@@ -463,7 +463,7 @@ export default function __identity(fileUploaderOptions, $rootScope, $http, $wind
                     return file
                 }
 
-                if (file.blob && file.blob instanceof Blobl) {
+                if (file.blob && file.blob instanceof Blob) {
                     return file.blob
                 }
 

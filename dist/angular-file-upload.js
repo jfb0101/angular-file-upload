@@ -720,7 +720,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    return file;
 	                }
 	
-	                if (file.blob && file.blob instanceof Blobl) {
+	                if (file.blob && file.blob instanceof Blob) {
 	                    return file.blob;
 	                }
 	
