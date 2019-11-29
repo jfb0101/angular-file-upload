@@ -458,6 +458,17 @@ export default function __identity(fileUploaderOptions, $rootScope, $http, $wind
          * @private
          */
         _xhrTransport(item) {
+            function getCorrectBlob(file) {
+                if (file instanceof Blob) {
+                    return file
+                }
+
+                if (file.blob && file.blob instanceof Blobl) {
+                    return file.blob
+                }
+
+                return null
+            }
             var xhr = item._xhr = new XMLHttpRequest();
             var sendable;
 
@@ -469,7 +480,7 @@ export default function __identity(fileUploaderOptions, $rootScope, $http, $wind
                     });
                 });
 
-                sendable.append(item.alias, item._file.blob, item.file.name);
+                sendable.append(item.alias, getCorrectBlob(item._file), item.file.name);
             }
             else {
                 sendable = item._file;

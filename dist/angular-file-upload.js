@@ -715,6 +715,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	        FileUploader.prototype._xhrTransport = function _xhrTransport(item) {
 	            var _this5 = this;
 	
+	            function getCorrectBlob(file) {
+	                if (file instanceof Blob) {
+	                    return file;
+	                }
+	
+	                if (file.blob && file.blob instanceof Blobl) {
+	                    return file.blob;
+	                }
+	
+	                return null;
+	            }
 	            var xhr = item._xhr = new XMLHttpRequest();
 	            var sendable;
 	
@@ -726,7 +737,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    });
 	                });
 	
-	                sendable.append(item.alias, item._file.blob, item.file.name);
+	                sendable.append(item.alias, getCorrectBlob(item._file), item.file.name);
 	            } else {
 	                sendable = item._file;
 	            }
