@@ -48,6 +48,8 @@ export default function __identity() {
             this.size = object.size;
             this.type = object.type;
             this.name = object.name;
+
+            this.blob = object
         }
     }
 }

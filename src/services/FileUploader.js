@@ -469,7 +469,7 @@ export default function __identity(fileUploaderOptions, $rootScope, $http, $wind
                     });
                 });
 
-                sendable.append(item.alias, item._file, item.file.name);
+                sendable.append(item.alias, item._file.blob, item.file.name);
             }
             else {
                 sendable = item._file;
